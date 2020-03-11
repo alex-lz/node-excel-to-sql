@@ -13,7 +13,7 @@
 		>
 		    <input type="file" name="sampleFile" accept=".xls, .xlsx" id="file" class="inputfile" onchange="preview_image()"/>
             <label for="file" id="fileName">Subir un archivo</label>
-		    <input type='submit' value='Subir' id="upload" class="button button2" style="display: none;"/>
+            <button id="upload" type="submit" class="button button2" disabled>Subir</button>
 		</form>	
 		<form method="get" action="/download">
             <button type="submit" class="button button3">Descargar</button>
@@ -31,7 +31,7 @@
                 if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
                     filename = filename.substring(1);
                 }
-                btnUpload.style.display = "inline";
+                btnUpload.disabled = false;
 				etiqueta.innerHTML = filename;
             }
         }

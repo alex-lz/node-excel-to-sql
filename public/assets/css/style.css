@@ -13,7 +13,16 @@ h2 {
     margin-bottom: 2em;
 }
 
-/* Input personalization */
+input:focus, input.form-control:focus {
+
+  outline:none !important;
+  outline-width: 0 !important;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+/* Input file personalization */
 .inputfile {
 	width: 0.1px;
 	height: 0.1px;
@@ -89,4 +98,16 @@ h2 {
   .button3:hover {
     background-color: orange;
     color: white;
+  }
+
+  button:disabled {
+    background: white;
+    color: rgb(111, 130, 158);
+    border: 2px solid rgb(111, 130, 158);
+  }
+
+  button:disabled:hover {
+    background: white;
+    color: rgb(111, 130, 158);
+    border: 2px solid rgb(111, 130, 158);
   }

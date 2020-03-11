@@ -5,8 +5,9 @@ const hbs = require('hbs');
 const colors = require('colors')
 const fileUpload = require('express-fileupload');
 const port = process.env.PORT || 3000;// To get port env variables from heroku
-require('./hbs/helpers')
+const fs = require('fs')
 const converter = require('./js/converter')
+require('./hbs/helpers')
 
 
 // Middleware - directorio publico
@@ -42,6 +43,14 @@ app.post('/upload', function(req, res) {
   sampleFile = req.files.sampleFile;
 
   uploadPath = __dirname + '/uploads/' + sampleFile.name;
+  
+  // Remove old file
+  try {
+    fs.unlinkSync('uploads/' + sampleFile.name)
+   //file removed
+  } catch(err) {
+    console.error(err)
+  }
 
   sampleFile.mv(uploadPath, function(err) {
     if (err) {
