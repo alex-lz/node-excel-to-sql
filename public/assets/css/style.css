@@ -13,7 +13,7 @@ h2 {
     margin-bottom: 2em;
 }
 
-input:focus, input.form-control:focus {
+*:focus {
 
   outline:none !important;
   outline-width: 0 !important;
@@ -51,6 +51,56 @@ input:focus, input.form-control:focus {
     cursor: pointer; /* "hand" cursor */
 }
 
+/* Icon's style */
+[class*="icon-"] {
+  font-family: 'fontello';
+  font-style: normal;
+  font-size: auto;
+  display: inline-flex;
+  width: 1em; 
+  height: 1em;
+}
+
+.excel-exp { 
+  width: 997px;
+  height: 383px;
+  background-image: url('../img/excel.jpg');
+} 
+
+.icon-excel { 
+  content: url('../img/file-excel-solid.svg'); 
+  filter: invert(55%) sepia(74%) saturate(376%) hue-rotate(72deg) brightness(93%) contrast(87%);
+} 
+
+.icon-upload { 
+  content: url('../img/upload-solid.svg');  
+  filter: invert(34%) sepia(80%) saturate(1305%) hue-rotate(165deg) brightness(95%) contrast(101%);
+} 
+
+button:disabled > .icon-upload {
+  filter: invert(51%) sepia(30%) saturate(343%) hue-rotate(176deg) brightness(93%) contrast(89%);
+}
+
+.icon-download { 
+  content: url('../img/download-solid.svg');  
+  filter: invert(59%) sepia(63%) saturate(2021%) hue-rotate(3deg) brightness(109%) contrast(103%);
+} 
+
+.inputfile:focus + label > .icon-excel,
+.inputfile + label:hover > .icon-excel {
+  filter: invert(92%) sepia(3%) saturate(4645%) hue-rotate(82deg) brightness(85%) contrast(107%);
+}
+
+.button2:hover > .icon-upload {
+  filter: invert(70%) sepia(13%) saturate(1058%) hue-rotate(160deg) brightness(98%) contrast(80%);
+}
+
+.button3:hover > .icon-download {
+  filter: invert(96%) sepia(23%) saturate(4965%) hue-rotate(308deg) brightness(104%) contrast(95%);
+}
+
+
+/* Buttons style */
 .button {
     background-color: #4CAF50; /* Green */
     border: none;

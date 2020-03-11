@@ -45,9 +45,7 @@ http://localhost:3000/about
 ```
 
 * Helpers
-* React: [Use React and Spring Boot to Build a Simple CRUD App](https://developer.okta.com/blog/2018/07/19/simple-crud-react-and-spring-boot)
-
-[Uppy](https://uppy.io/)
-[express-fileupload](https://github.com/richardgirges/express-fileupload/tree/master/example)
-[download-a-file-from-nodejs](https://stackoverflow.com/questions/7288814/download-a-file-from-nodejs-server-using-express)
+1. [Uppy](https://uppy.io/)
+2. [express-fileupload](https://github.com/richardgirges/express-fileupload/tree/master/example)
+3. [download-a-file-from-nodejs](https://stackoverflow.com/questions/7288814/download-a-file-from-nodejs-server-using-express)
 

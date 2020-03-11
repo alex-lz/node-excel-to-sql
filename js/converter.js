@@ -2,7 +2,7 @@
 const excelToJson = require('convert-excel-to-json');
 const colors = require('colors')
 const fs = require('fs')
-const con = require('./queries/consultas')
+const con = require('./consultas')
 
 const print = (name) => {
     let sql = "";
