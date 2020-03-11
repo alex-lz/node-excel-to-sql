@@ -1,0 +1,92 @@
+footer {
+    background-color: #353a3f;
+    color: white;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    text-align: center;
+    padding: 20px;
+}
+
+h2 {
+    color: lightslategray;
+    margin-bottom: 2em;
+}
+
+/* Input personalization */
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+    font-size: 1em;
+    font-weight: 500;
+    color: #4CAF50;
+    padding: 0.5em;
+    border-radius: 5px;
+    background-color: white; 
+    border: 2px solid #4CAF50;
+    transition-duration: 0.5s;
+    display: inline-block;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer; /* "hand" cursor */
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 0.5em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: 500;
+    margin: 4px 2px;
+    transition-duration: 0.5s;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .button1 {
+    background-color: white; 
+    color: #4CAF50; 
+    border: 2px solid #4CAF50;
+  }
+  
+  .button1:hover {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .button2 {
+    background-color: white; 
+    color: #008CBA; 
+    border: 2px solid #008CBA;
+  }
+  
+  .button2:hover {
+    background-color: #008CBA;
+    color: white;
+  }
+
+  .button3 {
+    background-color: white; 
+    color: orange; 
+    border: 2px solid orange;
+  }
+  
+  .button3:hover {
+    background-color: orange;
+    color: white;
+  }
