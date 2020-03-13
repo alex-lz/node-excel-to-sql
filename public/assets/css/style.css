@@ -61,12 +61,6 @@ h2 {
   height: 1em;
 }
 
-.excel-exp { 
-  width: 997px;
-  height: 383px;
-  background-image: url('../img/excel.jpg');
-} 
-
 .icon-excel { 
   content: url('../img/file-excel-solid.svg'); 
   filter: invert(55%) sepia(74%) saturate(376%) hue-rotate(72deg) brightness(93%) contrast(87%);
@@ -160,4 +154,25 @@ button:disabled > .icon-upload {
     background: white;
     color: rgb(111, 130, 158);
     border: 2px solid rgb(111, 130, 158);
+  }
+
+  /* Images styles */
+  .excel-exp { 
+    width: 997px;
+    height: 383px;
+    background-image: url('../img/excel.jpg');
+  } 
+  
+  .ambientacion-exp { 
+    width: 997px;
+    height: 575px;
+    background-image: url('../img/ambientacion.jpg');
+  } 
+
+  .lz-container {
+    display: table;
+    width: auto;
+    margin: 0px; /* adjust as needed */
+    padding: 0px; /* adjust as needed */
+    margin: 0 auto;
   }
