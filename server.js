@@ -69,6 +69,11 @@ app.get('/download', function(req, res){
   res.download(file); // Set disposition and send it.
 });
 
+app.get('/excel/ejemplo', function(req, res){
+  const file = `${__dirname}/public/Estructura archivo de entrada.xls`;
+  res.download(file); // Set disposition and send it.
+});
+
 
 /** Run app on port */ 
 app.listen(port, () => {
