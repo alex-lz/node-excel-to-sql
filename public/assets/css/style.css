@@ -75,6 +75,10 @@ button:disabled > .icon-upload {
   filter: invert(51%) sepia(30%) saturate(343%) hue-rotate(176deg) brightness(93%) contrast(89%);
 }
 
+button:disabled:hover > .icon-upload {
+  filter: invert(51%) sepia(30%) saturate(343%) hue-rotate(176deg) brightness(93%) contrast(89%);
+}
+
 .icon-download { 
   content: url('../img/download-solid.svg');  
   filter: invert(59%) sepia(63%) saturate(2021%) hue-rotate(3deg) brightness(109%) contrast(103%);
