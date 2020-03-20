@@ -32,7 +32,7 @@ const print = (name) => {
         let email     = excel[i].H ? aux_email     = excel[i].H : aux_email;
 
         
-        if(excel[i].I === 'D') {
+        if(excel[i].I === 'DE') {
             sql += con.info1;
             sql += con.consulta1(n_cliente, a_paterno, a_materno, nombre, nombre2);
             sql += con.consulta2(n_cliente, telefono);
@@ -49,7 +49,7 @@ const print = (name) => {
             sql += con.consulta10(n_cliente, excel[i].K, excel[i].N, excel[i].O);
         }
 
-        if(excel[i].I === 'C') {
+        if(excel[i].I === 'CR') {
             sql += con.info5;
             sql += con.consulta11(n_cliente, excel[i].J, excel[i].K, excel[i].L);
             sql += con.consulta12(excel[i].J);

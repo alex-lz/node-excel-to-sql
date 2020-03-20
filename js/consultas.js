@@ -6,7 +6,7 @@ const info = `
 -- HOJA: AMBIENTACION
 `
 const info1 = `
--- CATEGORIA PRODUCTO = D
+-- CATEGORIA PRODUCTO = DE
 
 -- Informacion del cliente
 -- Tablas involucradas
@@ -92,7 +92,7 @@ const consulta10 = (A,K,N,O) => {
 }
 
 const info5 = `
--- CATEGORIA PRODUCTO = C 
+-- CATEGORIA PRODUCTO = CR 
 
 -- Informacion de la cuenta de credito
 -- Tablas involucradas
