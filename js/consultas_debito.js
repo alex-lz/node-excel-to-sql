@@ -29,12 +29,12 @@ const consulta1 = (A,B,C,D,E) => {
 
 const consulta2 = (A,G) => {
     return `INSERT INTO bdinteg:"informix".si_telefonos_actual(empresa, /*NUMERO CLIENTE*/numcte, /*TELEFONO*/telefono, tipo_tel, status_tel, secuencia, extension, carrier, canal, contacto, cofetel, fecha_hora, user_insert, movil_fijo, status_stel, tel_confirmado, fech_confirmado)
-    VALUES('001', /*numcte*/'${A}', /*telefono*/'${G}', 1, 'A', 1, '', 1, 1, 0, 'V', '2020-3-6 5:16:21.0', '93825978', '0', '', null, null);\n\n`
+    VALUES('001', /*numcte*/'${A}', /*telefono*/'${G}', 2, 'A', 1, '', 1, 1, 0, 'V', '2020-3-6 5:16:21.0', '93825978', '0', '', null, null);\n\n`
 }
 
 const consulta3 = (A,G) => {
     return `INSERT INTO bdinteg:"informix".si_telefonos(empresa, /*NUMERO CLIENTE*/numcte, /*TELEFONO*/telefono, tipo_tel, status_tel, secuencia, extension, carrier, canal, contacto, cofetel, fecha_hora, user_insert, movil_fijo, status_stel, verificado, marcatel, fecha_actualiza, tel_confirmado, fech_confirmado)
-    VALUES('001', /*numcte*/'${A}', /*telefono*/'${G}', 1, 'A', 1, '', 1, 1, 0, 'V', '2020-3-6 5:16:21.0', 'transBPI', '0', '', null, null, null, null, null);\n\n`
+    VALUES('001', /*numcte*/'${A}', /*telefono*/'${G}', 2, 'A', 1, '', 1, 1, 0, 'V', '2020-3-6 5:16:21.0', 'transBPI', '0', '', null, null, null, null, null);\n\n`
 }
 
 const consulta4 = (A,F) => {
