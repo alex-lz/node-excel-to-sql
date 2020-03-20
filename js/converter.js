@@ -2,7 +2,11 @@
 const excelToJson = require('convert-excel-to-json');
 const colors = require('colors')
 const fs = require('fs')
-const con = require('./consultas')
+const DE = require('./consultas_debito')
+const CR = require('./consultas_credito')
+const PR = require('./consultas_prestamo')
+const PA = require('./consultas_pagare')
+const IN = require('./consultas_inversion')
 
 const print = (name) => {
     let sql = "";
@@ -20,7 +24,7 @@ const print = (name) => {
     });
     excel = excel.AMBIENTACION;
 
-    sql += con.info;
+    sql += DE.info;
     for(let i = 1; i < excel.length; i++) {
         let n_cliente = excel[i].A ? aux_n_cliente = excel[i].A : aux_n_cliente;
         let a_paterno = excel[i].B ? aux_a_paterno = excel[i].B : aux_a_paterno;
@@ -33,33 +37,53 @@ const print = (name) => {
 
         
         if(excel[i].I === 'DE') {
-            sql += con.info1;
-            sql += con.consulta1(n_cliente, a_paterno, a_materno, nombre, nombre2);
-            sql += con.consulta2(n_cliente, telefono);
-            sql += con.consulta3(n_cliente, telefono);
-            sql += con.consulta4(n_cliente, fch_ncto);
-            sql += con.consulta5(n_cliente);
-            sql += con.consulta6(n_cliente);
-            sql += con.consulta7(n_cliente, email);
-            sql += con.info2;
-            sql += con.consulta8(n_cliente, excel[i].J, excel[i].K, excel[i].L);
-            sql += con.info3;
-            sql += con.consulta9(n_cliente, excel[i].J, excel[i].K, excel[i].M, excel[i].O);
-            sql += con.info4;
-            sql += con.consulta10(n_cliente, excel[i].K, excel[i].N, excel[i].O);
+            sql += DE.info1;
+            sql += DE.consulta1(n_cliente, a_paterno, a_materno, nombre, nombre2);
+            sql += DE.consulta2(n_cliente, telefono);
+            sql += DE.consulta3(n_cliente, telefono);
+            sql += DE.consulta4(n_cliente, fch_ncto);
+            sql += DE.consulta5(n_cliente);
+            sql += DE.consulta6(n_cliente);
+            sql += DE.consulta7(n_cliente, email);
+            sql += DE.info2;
+            sql += DE.consulta8(n_cliente, excel[i].J, excel[i].K, excel[i].L);
+            sql += DE.info3;
+            sql += DE.consulta9(n_cliente, excel[i].J, excel[i].K, excel[i].M, excel[i].O);
+            sql += DE.info4;
+            sql += DE.consulta10(n_cliente, excel[i].K, excel[i].N, excel[i].O);
         }
 
         if(excel[i].I === 'CR') {
-            sql += con.info5;
-            sql += con.consulta11(n_cliente, excel[i].J, excel[i].K, excel[i].L);
-            sql += con.consulta12(excel[i].J);
-            sql += con.consulta13(excel[i].J);
-            sql += con.consulta14(excel[i].J);
-            sql += con.consulta15(excel[i].J);
-            sql += con.consulta16(excel[i].J, excel[i].K, excel[i].O);
-            sql += con.info6;
-            sql += con.consulta17(n_cliente, excel[i].J, excel[i].K, excel[i].M, excel[i].O);
-            sql += con.consulta18(n_cliente, excel[i].K, excel[i].N, excel[i].O);
+            sql += CR.info1;
+            sql += CR.consulta1(n_cliente, excel[i].J, excel[i].K, excel[i].L);
+            sql += CR.consulta2(excel[i].J);
+            sql += CR.consulta3(excel[i].J);
+            sql += CR.consulta4(excel[i].J);
+            sql += CR.consulta5(excel[i].J);
+            sql += CR.consulta6(excel[i].J, excel[i].K, excel[i].O);
+            sql += CR.info2;
+            sql += CR.consulta7(n_cliente, excel[i].J, excel[i].K, excel[i].M, excel[i].O);
+            sql += CR.consulta8(n_cliente, excel[i].K, excel[i].N, excel[i].O);
+        }
+
+        if(excel[i].I === 'PR') {
+            sql += PR.info1;
+            sql += PR.consulta1(n_cliente, excel[i].J, excel[i].K, excel[i].L);
+            sql += PR.consulta2(excel[i].J);
+            sql += PR.consulta3(excel[i].J);
+            sql += PR.consulta4(excel[i].J);
+            sql += PR.consulta5(excel[i].J, excel[i].K);
+            sql += PR.consulta6(excel[i].J, excel[i].K);
+        }
+
+        if(excel[i].I === 'PA') {
+            sql += PA.info1;
+            sql += PA.consulta1(n_cliente, excel[i].J, excel[i].L);
+        }
+
+        if(excel[i].I === 'IN') {
+            sql += IN.info1;
+            sql += IN.consulta1(n_cliente, excel[i].J, excel[i].K, excel[i].L);
         }
     }
     // console.log(sql)
