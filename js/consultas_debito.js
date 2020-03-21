@@ -54,7 +54,7 @@ const consulta6 = (A) => {
 
 const consulta7 = (A,H) => {
     return `INSERT INTO bdinteg:"informix".si_correos(empresa, /*NUMERO CLIENTE*/numcte, /*EMAIL*/correo_elec, tipo_correo, status_correo, secuencia, canal, fecha_hora, user_insert, valida_correo, valido, fecha_valida, correo_elec_alt) 
-    VALUES('001', /*numcte*/'${A}', /*correo_elec*/'${H}', 1, 'C', 1, 1, '2020-3-6 5:49:59.0', '92599192', null, null, null, null);\n`
+    VALUES('001', /*numcte*/'${A}', /*correo_elec*/'${H}', 1, 'A', 1, 1, '2020-3-6 5:49:59.0', '92599192', null, null, null, null);\n`
 }
 
 
