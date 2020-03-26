@@ -48,9 +48,9 @@ const print = (name) => {
             sql += DE.info2;
             sql += DE.consulta8(n_cliente, excel[i].J, excel[i].K, excel[i].L);
             sql += DE.info3;
-            sql += DE.consulta9(n_cliente, excel[i].J, excel[i].K, excel[i].M, excel[i].O);
+            sql += DE.consulta9(n_cliente, a_paterno, a_materno, nombre, nombre2, excel[i].J, excel[i].K, excel[i].M, excel[i].O);
             sql += DE.info4;
-            sql += DE.consulta10(n_cliente, excel[i].K, excel[i].N, excel[i].O);
+            sql += DE.consulta10(n_cliente, a_paterno, a_materno, nombre, nombre2, excel[i].K, excel[i].N, excel[i].O);
         }
 
         if(excel[i].I === 'CR') {
@@ -63,7 +63,7 @@ const print = (name) => {
             sql += CR.consulta6(excel[i].J, excel[i].K, excel[i].O);
             sql += CR.info2;
             sql += CR.consulta7(n_cliente, excel[i].J, excel[i].K, excel[i].M, excel[i].O);
-            sql += CR.consulta8(n_cliente, excel[i].K, excel[i].N, excel[i].O);
+            sql += CR.consulta8(n_cliente, a_paterno, a_materno, nombre, nombre2, excel[i].K, excel[i].N, excel[i].O);
         }
 
         if(excel[i].I === 'PR') {
