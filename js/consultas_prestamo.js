@@ -1,3 +1,26 @@
+const moment = require('moment')
+moment.updateLocale(moment.locale(), { invalidDate: "" })
+
+
+let fecha = moment().add(24, 'M').format('YYYY-MM-01');
+    fecha = `'${fecha}'`;
+let fecha22 = Number(moment().format('DD'));// EXTEND(MDY(1,1,1900), YEAR to SECOND)
+
+if (fecha22 > 22){
+   fecha22 = moment().add(1, 'M').format('YYYY-MM-22'); fecha22 = `'${fecha22}'`;
+} else {
+   fecha22 = moment().format('YYYY-MM-22'); fecha22 = `'${fecha22}'`;
+}
+
+fecha22_18 = Number(moment().format('DD')); // EXTEND(MDY(7,17,2010), YEAR to SECOND)
+
+if (fecha22_18 > 18){
+    fecha22_18 = moment().add(1, 'M').format('YYYY-MM-22'); fecha22_18 = `'${fecha22_18}'`;
+ } else {
+    fecha22_18 = moment().format('YYYY-MM-22'); fecha22_18 = `'${fecha22_18}'`;
+ }
+    
+
 const info1 = `
 -- CATEGORIA PRODUCTO = PR
 -- Prestamos
@@ -11,18 +34,18 @@ const info1 = `
 `
 
 const consulta1 = (A,J,K,L) => {
-    return `INSERT INTO bdicred:"informix".sd_maecredcrd(empresa, /*CUENTA*/num_credito, /*PRODUCTO*/num_producto, ejecutivo, /*NUMERO CLIENTE*/numcte, aval_cte, aval_linea, divisa, sucursal, id_origen, origen, cod_tipo_linea, cod_linea, /*ESTATUS*/status_cred, bandera_renovac, bandera_prorroga, periodo_plazo, plazo, fecha_apertura, fecha_vencim, period_pago_cap, period_pag_int, dias_trasp_cap, dias_trasp_int, tasa_fija_o_var, cod_tasa_base, factor_sobretasa, sobretasa, tasa_interes, cod_tasa_mora, sobretasa_mora, fact_sobret_mora, tasa_moratorios, tasa_preferencial, sobretasa_preferencial, factor_preferencial, valor_preferencial, fecha_pago_cap, fecha_pago_int, es_fisica, bandera_fi_fo, actividad, tipo_calculo, num_aper_ant, rev_tasa_var_per, dia_para_revisar, cod_prod, bandera_ministra, credito_externo, califica_riesgo, cod_agricola, pagos_sostenidos, campo_trab1, campo_trab2, campo_trab3, campo_trab4, /*CUENTA_MOD*/cuenta_clabe)
-    VALUES('001', /*num_credito*/'${J}', /*num_producto*/'${K}', '94066531', /*numcte*/'${A}', '                    ', '                    ', '01', '0448', '  ', '   ', '  ', '    ', /*status_cred*/'${L}', 'S', 'N', 'M', 12, EXTEND(MDY(5,12,2012), YEAR to SECOND), EXTEND(MDY(5,12,2013), YEAR to SECOND), '3', '2', 90, 90, '1', 'TASAPRES', '+', 0.000000, 60.750000, 'MORAPRES', 0.000000, '+', 96.750000, '        ', 0.000000, ' ', 0.00, EXTEND(MDY(5,12,2013), YEAR to SECOND), EXTEND(MDY(5,12,2013), YEAR to SECOND), 'S', '  ', '   ', '01', '0.160               ', ' ', '0', '  ', 'M', '                    ', '  ', '     ', 0, 0.00, 0.00, '          ', '          ', /*cuenta_clabe*/'137730${J}');\n\n`
+    return `INSERT INTO bdicred:"informix".sd_maecredcrd(empresa, /*CUENTA*/num_credito, /*PRODUCTO*/num_producto, ejecutivo, /*NUMERO CLIENTE*/numcte, aval_cte, aval_linea, divisa, sucursal, id_origen, origen, cod_tipo_linea, cod_linea, /*ESTATUS*/status_cred, bandera_renovac, bandera_prorroga, periodo_plazo, plazo, fecha_apertura, /*MODIFICACION_9*/fecha_vencim, period_pago_cap, period_pag_int, dias_trasp_cap, dias_trasp_int, tasa_fija_o_var, cod_tasa_base, factor_sobretasa, sobretasa, tasa_interes, cod_tasa_mora, sobretasa_mora, fact_sobret_mora, tasa_moratorios, tasa_preferencial, sobretasa_preferencial, factor_preferencial, valor_preferencial, fecha_pago_cap, fecha_pago_int, es_fisica, bandera_fi_fo, actividad, tipo_calculo, num_aper_ant, rev_tasa_var_per, dia_para_revisar, cod_prod, bandera_ministra, credito_externo, califica_riesgo, cod_agricola, pagos_sostenidos, campo_trab1, campo_trab2, campo_trab3, campo_trab4, /*CUENTA_MOD*/cuenta_clabe)
+    VALUES('001', /*num_credito*/'${J}', /*num_producto*/'${K}', '94066531', /*numcte*/'${A}', '                    ', '                    ', '01', '0448', '  ', '   ', '  ', '    ', /*status_cred*/'${L}', 'S', 'N', 'M', 12, EXTEND(MDY(5,12,2012), YEAR to SECOND), /*fecha_vencim*/${fecha}, '3', '2', 90, 90, '1', 'TASAPRES', '+', 0.000000, 60.750000, 'MORAPRES', 0.000000, '+', 96.750000, '        ', 0.000000, ' ', 0.00, EXTEND(MDY(5,12,2013), YEAR to SECOND), EXTEND(MDY(5,12,2013), YEAR to SECOND), 'S', '  ', '   ', '01', '0.160               ', ' ', '0', '  ', 'M', '                    ', '  ', '     ', 0, 0.00, 0.00, '          ', '          ', /*cuenta_clabe*/'137730${J}');\n\n`
 }
 
 const consulta2 = (J) => {
-    return `INSERT INTO bdicred:"informix".sd_maecredanexocrd(empresa, /*CUENTA*/num_credito, localidad, dia_corte, dias_gracia_mora, tp_dias_calc_mora, dias_fecha_max_pago, tp_dias_fecha_pago, cod_tasa_base_cte, factor_sobretasa_cte, sobretasa_cte, tasa_interes_cte, fecha_vencto, prox_fecha_pago, fecha_proceso, fecha_ult_pago, nombre_pres, cat)
-    VALUES('001', /*num_credito*/'${J}', NULL, 2, 0, '1', 1, '0', 'CRDREEST', '+', 0.000000, 65.000000, NULL, EXTEND(MDY(1,1,1900), YEAR to SECOND), EXTEND(MDY(3,5,2011), YEAR to SECOND), EXTEND(MDY(3,5,2011), YEAR to SECOND), NULL, 0.00);\n\n`
+    return `INSERT INTO bdicred:"informix".sd_maecredanexocrd(empresa, /*CUENTA*/num_credito, localidad, dia_corte, dias_gracia_mora, tp_dias_calc_mora, dias_fecha_max_pago, tp_dias_fecha_pago, cod_tasa_base_cte, factor_sobretasa_cte, sobretasa_cte, tasa_interes_cte, fecha_vencto, /*MODIFICACION_13*/prox_fecha_pago, fecha_proceso, fecha_ult_pago, nombre_pres, cat)
+    VALUES('001', /*num_credito*/'${J}', NULL, 2, 0, '1', 1, '0', 'CRDREEST', '+', 0.000000, 65.000000, NULL, /*prox_fecha_pago*/${fecha22}, EXTEND(MDY(3,5,2011), YEAR to SECOND), EXTEND(MDY(3,5,2011), YEAR to SECOND), NULL, 0.00);\n\n`
 }
 
 const consulta3 = (J) => {
-    return `INSERT INTO bdicred:"informix".sd_amortiza_creditocrd(empresa, /*CUENTA*/num_credito, fecha_cuota, tipo_cuota, capital_mto_cuota, capital_debe, capital_pagado, capital_status, capital_status_ant, capital_fecha_pago, interes_debe, interes_pagado, interes_status, interes_status_ant, interes_fecha_pago, iva_debe, iva_pagado, iva_status, iva_status_ant, iva_fecha_pago, mora_provi_ordi, mora_provi_cope, mora_sdo_ordi, mora_sdo_ordi_pag, mora_sdo_cope, mora_sdo_cope_pag, mora_bonificado, mora_status, mora_iva_debe, mora_iva_pagado, mora_iva_status, mora_iva_fecha_pago, num_pago, campo_trabajo1, campo_trabajo2, campo_trabajo3, campo_trabajo4)
-    VALUES('001', /*num_credito*/'${J}', EXTEND(MDY(7,17,2010), YEAR to SECOND), '3', 1000.00, 681.96, 0.00, '5', '1', NULL, 274.17, 0.00, '3', '0                 ', '                  ', 43.87, 43.87, '1', '0', NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, '1', 0.00, 0.00, '1', NULL, 5, 0.00, 0.00, '', '');\n\n`
+    return `INSERT INTO bdicred:"informix".sd_amortiza_creditocrd(empresa, /*CUENTA*/num_credito, /*MODIFICACION_14*/fecha_cuota, tipo_cuota, capital_mto_cuota, capital_debe, capital_pagado, capital_status, capital_status_ant, capital_fecha_pago, interes_debe, interes_pagado, interes_status, interes_status_ant, interes_fecha_pago, iva_debe, iva_pagado, iva_status, iva_status_ant, iva_fecha_pago, mora_provi_ordi, mora_provi_cope, mora_sdo_ordi, mora_sdo_ordi_pag, mora_sdo_cope, mora_sdo_cope_pag, mora_bonificado, mora_status, mora_iva_debe, mora_iva_pagado, mora_iva_status, mora_iva_fecha_pago, num_pago, campo_trabajo1, campo_trabajo2, campo_trabajo3, campo_trabajo4)
+    VALUES('001', /*num_credito*/'${J}', /*fecha_cuota*/${fecha22_18}, '3', 1000.00, 681.96, 0.00, '5', '1', NULL, 274.17, 0.00, '3', '0                 ', '                  ', 43.87, 43.87, '1', '0', NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, '1', 0.00, 0.00, '1', NULL, 5, 0.00, 0.00, '', '');\n\n`
 }
 
 const consulta4 = (J) => {
